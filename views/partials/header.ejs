@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Blogspot</title>
+</head>
+<style>
+  nav{
+    background-color: rgba(223, 37, 37, 0.918);
+    height: 60px;
+  }
+  ul{
+    padding-inline-end:32px;
+  }
+ 
+</style>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <a style="color:white;font-size: 25px; padding-left: 60px;"class="navbar-brand" href="/">Blogspot</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+           <% if(!currentUser){ %>
+            <li class="nav-item ">
+              <a style="color:white;font-size: 16px;" class="nav-link" href="/register">Signup <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a style="color:white;font-size: 16px;"class="nav-link" href="/login">Login</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item ">
+              
+              <a style="color:white;font-size: 16px;margin-right: 880px;" class="nav-link" href="/blogs/new">New <span class="sr-only">(current)</span></a>
+            </li>
+            
+            
+            <li class="nav-item">
+              <a style="margin-right: 30px;"  href="#"><i style="color:white;margin-top: 13px;padding-right: 3px;" class="fas fa-user"><%= currentUser.username %></i></a>
+              </li>
+              <li class="nav-item">
+              <a style="color:white;font-size: 16px;" class="nav-link" href="/logout" tabindex="-1" >Logout</a>
+            </li>
+            
+          </ul>
+          
+            
+
+          </ul>
+         <% } %>
+        </div>
+      </nav>
+
+
+      <% if(error && error.length>0){ %>
+        <div class="alert alert-danger" role="alert" style="margin-top: 14px;margin-left: 60px; margin-right: 60px; height: 43px;">
+          <p><%= error %></p>
+        </div>
+        <% } %>
+    
+        <% if(success && success.length>0){ %>
+        <div class="alert alert-success" role="alert" style="margin-top: 14px;margin-left: 60px; margin-right: 60px; height: 43px;">
+          <p style="font-family: Arial;font-weight: bold;"><%= success %></p>
+        </div>
+        <% } %>
+      </div>

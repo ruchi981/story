@@ -1,0 +1,83 @@
+<%- include("../partials/header") %>
+
+
+
+<body style="background-color:#f5f5f5;">
+
+<div class="container";>
+ 
+  <div class="card" style="width: 800px; margin-left: 310px;margin-top: 27px;">
+    <img class="card-img-top" src="<%= blog.image %>" alt="Card image cap" style="height: 540px; width: 800px;">
+    <div class="card-body">
+      <h4 class="card-title" style="font-family: pt sans;font-size: 35px;"><%= blog.title %></h4>
+      <p style="font-family:centaur;font-size:20px" class="card-text"><i><%= blog.description %></i></p>
+      <hr>
+      <h5 style="padding-bottom: 1px;font-family: montotype corsiva;"><i><b>Submitted By:-</b></i><a href="/user/<%= blog.author.id %>"><%= blog.author.username %></a> on September 3 2020</h5>
+      <hr>
+      <% if(blog.author.id.equals(currentUser._id)){ %>
+        <!-- <button class="btn-block" style="background-color:rgba(223, 37, 37, 0.918); height: 40px;border: medium;color:white">Sign Up</button> -->
+        <!-- <a href="/blogs/<%= blog._id %>/edit" class="btn btn-default btn-xs rounded-pill"  style="background-color:rgba(223, 136, 37, 0.911); width:120px;height: 40px;border: medium;color:white;display: inline-block">Edit</a> -->
+
+        <form  action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+            <input type="submit" class="btn btn-danger btn-xs rounded-pill" value="Delete" style=" width:120px;height: 40px;border: medium;color:white; display: inline-block">
+
+     <% } %>
+    </div>
+  </div>
+  <!-- <img src="<%= blog.image %>">
+        <h2><%= blog.title %></h2>
+       
+        <p><%= blog.description %></p> --><br>
+
+        <div class="card" style="width: 800px; margin-left: 310px; margin-bottom: 30px;">
+            <div class="card-header">
+                <a class="btn btn-default" style="background-color:rgba(223, 37, 37, 0.918); height: 40px;border: medium;color:white;margin-left: 600px;"   href="/blogs/<%= blog._id %>/comments/new">Leave a comment</a>
+            </div>
+            <!-- <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div> -->
+
+        
+           
+
+          
+    
+
+            
+
+
+        <ul class="list-group list-group-flush">
+            <% blog.comments.forEach(function(comment){ %>
+            <li class="list-group-item"><i style="margin-right: 5px;" class="fas fa-user"></i><%= comment.author.username %><br><br>
+                -<%= comment.text %><span> 
+                  <% if(comment.author.id.equals(currentUser._id)){ %>
+            
+                     <form action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                      <input type="submit" class="btn btn-danger btn-xs rounded-pill" value="Delete" style=" width:120px;height: 40px;border: medium;color:white; display: inline-block">
+
+                   </form></span> 
+
+                
+        
+            </li>
+   
+       
+        
+   <% } %>
+ 
+         
+     
+     <% }) %>
+
+    
+ </div>
+   
+ </div>
+</div>
+
+</body>
+    
+<%- include("../partials/footer") %>

@@ -1,0 +1,41 @@
+
+
+<%- include("../partials/header") %>
+
+<body style="background-color:#f5f5f5;">
+    
+<div class="container">
+    <div class="card" style="margin-top: 40px; width: 1000px;margin-left: 60px;margin-bottom: 30px;">
+            
+        <div class="card-body">
+        <h1 style="text-align: center;font-weight: bolder;font-family:Cambria">Edit <i>"<%= blog.title %>"</i></h1>
+        <div>
+            <form action="/blogs/<%=blog._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <label>Name*</label>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="blog[title]"  value="<%= blog.title %>">
+                </div>
+                
+               
+                  <div style="padding-top: 10px;" class="form-group">
+                  <label>Image*</label>
+                    <input height="300px" type="file" id="image" name="image" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label>Snippet*</label> 
+                    <textarea rows="09" class="form-control"  type="text" name="blog[description]"  value="<%= blog.description %>"></textarea>
+                   
+                </div>
+                <div class="form-group">
+                    <button class="btn-block" style="background-color:rgba(223, 37, 37, 0.918); height: 40px;border: medium;color:white">Update</button>
+                </div>
+            </form>
+            <a style="color:blue" href="/blogs">Go Back</a>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<%- include("../partials/footer") %>
