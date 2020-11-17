@@ -11,7 +11,7 @@ const crypto=require("crypto");
 const flash=require("connect-flash")
 const LocalStrategy=require("passport-local");
 const User = require("./models/user");
-const port=process.env.PORT || 4000;
+const port=process.env.PORT || 8000;
 const app=express();
 
 app.set("view engine","ejs");
@@ -19,7 +19,7 @@ app.set("view engine","ejs");
 mongoose.connect("mongodb://localhost/blogspot",{useNewUrlParser:true,useUnifiedTopology:true}).then(()=>{
     console.log("connected to mongodb");
 })
-//PASSPORT config
+//PASSPORT configuration
 app.use(require("express-session")({
     secret:"Iamruchipanda",
     resave:false,
@@ -86,7 +86,9 @@ app.post("/register", upload.single('image'),(req,res)=>{
        avatar:req.body.avatar,
        firstName:req.body.firstName,
        lastName:req.body.lastName,
-       email:req.body.email
+       email:req.body.email,
+      
+
     })
      //the passport local mongoose uses .register to register and automatically password is used
      User.register(newUser,req.body.password,function(err,user){
@@ -262,6 +264,11 @@ app.post('/forgot', function(req, res, next) {
     });
   });
 
+  //ABOUT PAGE
+  app.get("/about",(req,res)=>{
+    res.render("about")
+  })
+
 //==========================================================
 //BLOG ROUTES
 //==========================================================
@@ -319,6 +326,7 @@ app.post("/blogs",isLoggedIn, upload.single('image'), function(req, res) {
          id: req.user._id,
         username: req.user.username
        }
+       
        Blog.create(req.body.blog, function(err, blog) {
         if (err) {
             console.log(err);

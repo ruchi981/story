@@ -5,8 +5,65 @@
 <body style="background-color:#f5f5f5;">
 
 <div class="container";>
+  <div cass="row">
+  <div class="col-md-3">
+    <div class="d-none d-md-block">
+      <div class="lead text-center text-capitalize" style="margin-top: 10px;">
+        <%= blog.title %>
+       
+      </div>
+      <div class="card shadow-sm mt-2">
+        <div class="card-header">
+          <i class="far fa-calendar-alt"></i> Taken From:
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-capitalize">
+           <%= blog.peak %>
+          </li>
+        </ul>
+      </div>
+      
+            <!-- <div class="card shadow-sm mt-3">
+              <div class="card-header">
+                <i class="far fa-smile"></i> Major Attraction
+              </div>
+              <ul class="list-group list-group-flush">
+                
+                  <li class="list-group-item text-capitalize">
+                    <%= blog.attraction %>
+                  </li>
+                  
+                
+                  
+              </ul>
+            </div>
+             -->
+              <div class="card shadow-sm mt-3">
+                <div class="card-header">
+                  <i class="fas fa-phone"></i> Contact
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <%= blog.contact %>
+                  </li>
+                </ul>
+              <!-- </div>
+              <div class="card shadow-sm mt-3">
+                <div class="card-header">
+                  <i class="fas fa-map-marker-alt"></i> Location
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <%= blog.location %>
+                  </li>
+                </ul>
+              </div>
+               -->
+    </div>
+  </div>
+  <div class="col-md-9">
  
-  <div class="card" style="width: 800px; margin-left: 310px;margin-top: 27px;">
+  <div class="card" style="width: 800px; margin-left: 310px;margin-top:  -215px;">
     <img class="card-img-top" src="<%= blog.image %>" alt="Card image cap" style="height: 540px; width: 800px;">
     <div class="card-body">
       <h4 class="card-title" style="font-family: pt sans;font-size: 35px;"><%= blog.title %></h4>
@@ -19,7 +76,7 @@
         <!-- <a href="/blogs/<%= blog._id %>/edit" class="btn btn-default btn-xs rounded-pill"  style="background-color:rgba(223, 136, 37, 0.911); width:120px;height: 40px;border: medium;color:white;display: inline-block">Edit</a> -->
 
         <form  action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
-            <input type="submit" class="btn btn-danger btn-xs rounded-pill" value="Delete" style=" width:120px;height: 40px;border: medium;color:white; display: inline-block">
+            <input type="submit" class="btn btn-danger btn-xs rounded-pill" value="Delete" style=" width:120px;height: 40px;border: medium;color:goldenrod; display: inline-block;background-color: black;">
 
      <% } %>
     </div>
@@ -31,7 +88,7 @@
 
         <div class="card" style="width: 800px; margin-left: 310px; margin-bottom: 30px;">
             <div class="card-header">
-                <a class="btn btn-default" style="background-color:rgba(223, 37, 37, 0.918); height: 40px;border: medium;color:white;margin-left: 600px;"   href="/blogs/<%= blog._id %>/comments/new">Leave a comment</a>
+                <a class="btn btn-default" style="background-color:black; height: 40px;border: medium;color:goldenrod;margin-left: 600px;"   href="/blogs/<%= blog._id %>/comments/new">Leave a comment</a>
             </div>
             <!-- <ul class="list-group list-group-flush">
               <li class="list-group-item">Cras justo odio</li>
@@ -55,10 +112,11 @@
                 -<%= comment.text %><span> 
                   <% if(comment.author.id.equals(currentUser._id)){ %>
             
-                     <form action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                      <input type="submit" class="btn btn-danger btn-xs rounded-pill" value="Delete" style=" width:120px;height: 40px;border: medium;color:white; display: inline-block">
+                     <!-- <form action="/blogs/<%= blog._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                      
+                      <input type="submit" class="btn" value="Delete" style=" width:120px;height: 40px;border: medium;color:goldenrod; display: inline-block;background-color: black;">
 
-                   </form></span> 
+                   </form></span>  -->
 
                 
         
@@ -76,6 +134,7 @@
  </div>
    
  </div>
+</div>
 </div>
 
 </body>

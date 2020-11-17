@@ -1,88 +1,68 @@
 <%- include("../partials/header") %>
-<body style="background-color:#E8E8E8;">
-    <div class="card" style="height: 500px;margin-bottom:15px">
-        <div class="card-img-top">
-            <img style="height:450px;width: 100%;"   src="https://images.unsplash.com/photo-1513708929605-6dd0e1b081bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80">
-        <div class="centered" style="position: absolute;
-        top: 30%;
+
+<main>
+  <div class="card" style="border: 0; height:700px">
+  <div class="container" width="90%">
+      <img  style="padding-top:6px;width:1100px;height: 580px;"   src="https://images.unsplash.com/photo-1516638129451-1a136c7bd25b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80">
+      <div style="
+      color: white;
+      font-size: 80px;
+      font-weight: bolder;
+        position: absolute;
+        top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);">
-        <h1 style="color: whitesmoke;font-size:75px;font-family: Cambria;">Welcome to Bryary!!</h1>
-    <p style="text-align: center;font-size: 22px;color:white" >Read and Create your own stories </p>
-</div>
-<!-- <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-<a style="background-color:rgba(223, 37, 37, 0.918);color: white;" class="btn rounded-pill" href="">Read more</a> -->
-        </div>
+        transform: translate(-50%, -50%);
+        font-family: Callibri;
+        font-weight: bolder;
+      " class="centered">Quote Books</div>
+    </div>
+    <div class="centered" style="font-weight:bold;color: white;font-size: 24px;position: absolute;
+    top: 56%;
+    left: 40%;font-family: monotype corsiva;">explore the unexplored.......</div>
     </div>
     
+</div>
     
+</main>
 
 
-<!-- <a class="btn btn-success" href="/blogs/new">Add a new blog</a> -->
-
-<div class="container" style="margin-top:20px;margin-bottom: 40px;">
-    
-   <!-- <% blogs.forEach(function(blog){ %>
-        <h2><%= blog.title %></h2>
-       
-        <p><%= blog.description %></p>
-
-
-        <a class="btn btn-info" href="/blogs/<%= blog._id %>">Read more</a>
-    
-    <% }) %>
-</div> -->
-
-<div class="card-columns" >
-    <% blogs.forEach(function(blog){ %>
-    <div class="card  shadow border-0" style="margin-right:90px">
-      <img class="card-img-top" src="<%= blog.image %>" alt="Card image cap">
-     
-        <h5 class="card-title text-capitalize" style="margin-bottom:20px;padding-top:18px">
-            <a style="margin-top:66px;margin-left:20px;font-family:Cambria; font-size: 25px;font-weight: bold;"><%= blog.title %></a><br>
-            <a style="margin-left:13px;margin-top: 8px;background-color:rgba(223, 37, 37, 0.918);border: medium;"class="btn btn-info rounded-pill" href="/blogs/<%= blog._id %>">Read more</a>
-            
-
-            
-          </h5>
   
-
-       
-        
-       
-      </div>
-    
-    <% }) %>
-    
-  </div>
-  
-  
-<!-- <div class="row" style="margin-left: -20px;">
+<div class="container">
+ 
+<div class="row" style="margin-left: -20px;">
     
     <% blogs.forEach(function(blog){ %>
   
-    <div class="col-sm-12 col-md-6 col-lg-4">
-      <div class="card indexCards shadow border-0 mt-4" style="margin-bottom:4px">
-        <a href="/campgrounds/5b7686c2aebcf900147d5ebb"><img id="campgroundCard" class="card-img-top" src="<%= blog.image %>"></a>
+    <div class="col" style="margin-right: 13px;">
+      <div class="card indexCards shadow border-0 mt-4" style="margin-bottom:4px;height: 350px; width:330px;">
+        <a href="#"><img class="card-img-top" src="<%= blog.image %>" width="330px;" height="200px"></a>
           <h5 class="card-title text-capitalize" style="margin-bottom:20px;padding-top:18px">
-            <a style="margin-top:70px;margin-left:20px;" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
+            <h3 style="padding-left: 10px; font-weight: bold; font-family: Georgia;margin-top: -24px;"><a href="/blogs/<%= blog._id %>" style="color: rgba(47, 94, 182, 0.952);"><%= blog.title %></a></h2>
+              <h6 style="color: gray;padding-left: 10px;font-family: Palatino Linotype;">Admin:-<i><%= blog.author.username %></i></h6>
+              <a style="margin-left:12px;margin-top: 6px;margin-bottom:10px;background-color:black;border: medium;color:goldenrod;width: 100px;"class="btn btn-sm rounded-pill" href="/blogs/<%= blog._id %>">Read more</a>
+             
+              
+            </h5>
+          
             
 
             
-          </h5>
+        
   
             
        
             
-              
+            <!-- <div class="container" style="margin-top:30px"> -->
               
                   
               
         </div>
       </div>
       <% }) %>
-    </div> -->
-    </body>
+    </div>
+  </div>
+
+
 
 
  
@@ -90,4 +70,4 @@
     <%- include("../partials/footer") %>
  
  
-    
+     --> 

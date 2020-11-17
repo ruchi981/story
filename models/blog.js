@@ -14,8 +14,27 @@ const blogSchema=new mongoose.Schema({
     imageId: String,
    description:{
        type:String,
+       required:true
        
    },
+   location:{
+       type:String,
+       required:true
+
+   },
+   peak:{
+       type:String,
+       required:true
+   },
+   attraction:{
+       type:String,
+       required:true
+   },
+   contact:{
+       type:Number,
+       required:true
+   },
+
 
 //    publishDate:{
 //        type:String,
